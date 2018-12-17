@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Check Me!</string>
+
+    <string-array name="elementosMenu">
+        <item>Editar</item>
+        <item>Marcar como realizada</item>
+        <item>Ver detalles</item>
+        <item>Eliminar</item>
+    </string-array>
+</resources>

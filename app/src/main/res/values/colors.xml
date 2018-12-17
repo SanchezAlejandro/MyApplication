@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="verde">#088A08</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="negro">#000000</color>
+    <color name="gris">#E0E0E0</color>
+    <color name="azulPastel">#CEE3F6</color>
+    <color name="verdePastel">#A9F5BC</color>
+    <color name="claro">#F2F2F2</color>
+    <color name="purpuraPastel">#E1BEE7</color>
+    <color name="rosaPastel">#F8BBD0</color>
+    <color name="indigoPastel">#C5CAE9</color>
+    <color name="verdeAzuladoPastel">#A7FFEB</color>
+    <color name="verdePastelDos">#C8E6C9</color>
+    <color name="limaPastel">#F0F4C3</color>
+    <color name="amarilloPastel">#FFF9C4</color>
+    <color name="ambarPastel">#FFE57E</color>
+    <color name="azulGris">#B0BEC5</color>
+    <color name="boton">#66C5CAE9</color>
+    <color name="fondoOscuro">#455A64</color>
+    <color name="colorContraste">#d602ee</color>
+    <color name="colorSecundario">#0091EA</color>
+</resources>
