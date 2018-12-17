@@ -13,4 +13,10 @@
         android:id="@+id/ajustes"
         app:showAsAction="never"
         />
+
+    <item
+        android:title="Ayuda"
+        android:id="@+id/ayuda"
+        app:showAsAction="never"
+        />
 </menu>

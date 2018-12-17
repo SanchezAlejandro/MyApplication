@@ -10,6 +10,247 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/RelativeLayoutConsejosIniciales"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/RelativeLayoutHola"
+                android:background="@color/grisconsejos"
+                android:layout_centerInParent="true"
+                android:layout_margin="8dp"
+                android:elevation="4dp"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TextViewBienvenida"
+                    android:text="Hola, bienvenido!
+Te daré un pequeño recorrido por la aplicación."
+                    android:textSize="24dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="    Comencemos!    "
+                    android:id="@+id/BotonComencemos"
+                    android:layout_below="@id/TextViewBienvenida"
+                    android:background="@drawable/fondo_boton_ok_color"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/RelativeLayoutConsejoAgregar"
+                android:background="@color/grisconsejos"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="90dp"
+                android:elevation="4dp"
+                android:visibility="invisible"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TextViewConsejoAgregar"
+                    android:text="El botón que se encuentra abajo a la derecha con un signo de más (+), sirve para agregar una tarea nueva."
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="    Siguiente    "
+                    android:id="@+id/BotonSiguienteAgregar"
+                    android:layout_below="@id/TextViewConsejoAgregar"
+                    android:background="@drawable/fondo_boton_ok_color"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="85dp"
+                android:layout_height="90dp"
+                android:id="@+id/RelativeLayoutMuestraAgregar"
+                android:background="#A6F0F000"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:visibility="invisible"
+                >
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/RelativeLayoutConsejoAreaDeLista"
+                android:background="@color/grisconsejos"
+                android:layout_centerInParent="true"
+                android:layout_margin="8dp"
+                android:elevation="4dp"
+                android:visibility="invisible"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TextViewConsejoAreaDeLista"
+                    android:text="Esta es el área donde verás una lista con tus tareas pendientes."
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="    Siguiente    "
+                    android:id="@+id/BotonSiguienteArea"
+                    android:layout_below="@id/TextViewConsejoAreaDeLista"
+                    android:background="@drawable/fondo_boton_ok_color"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:id="@+id/RelativeLayoutMuestraAreaDeLista"
+                android:background="#A6F0F000"
+                android:layout_centerInParent="true"
+android:visibility="invisible"
+                >
+
+            </RelativeLayout>
+
+            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RelativeLayoutConsejoTateaDeLista"
+            android:background="@color/grisconsejos"
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+android:visibility="invisible"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TextViewConsejoTareaDeLista"
+                android:text="Cuando tengas alguna tarea puedes seleccionarla para ver más opciones o si prefieres dejar presionada dicha tarea para que aparezca un menú de opciones."
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="    Siguiente    "
+                android:id="@+id/BotonSiguienteTarea"
+                android:layout_below="@id/TextViewConsejoTareaDeLista"
+                android:background="@drawable/fondo_boton_ok_color"
+                android:layout_centerHorizontal="true"
+                android:elevation="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                />
+        </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="14dp"
+                android:id="@+id/RelativeLayoutMuestraTareaDeLista"
+                android:background="#A6FAFAFF"
+android:visibility="invisible"
+                >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/RelativeLayoutConsejoSalir"
+                android:background="@color/grisconsejos"
+                android:layout_margin="8dp"
+                android:elevation="4dp"
+                android:visibility="invisible"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TextViewConsejoSalir"
+                    android:text="En la parte de arriba podrás ver una X roja, al presionarla podrás salir de la aplicación."
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="    Siguiente    "
+                    android:id="@+id/BotonSiguienteSalir"
+                    android:layout_below="@id/TextViewConsejoSalir"
+                    android:background="@drawable/fondo_boton_ok_color"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/RelativeLayoutConsejoOpciones"
+                android:background="@color/grisconsejos"
+                android:layout_margin="8dp"
+                android:elevation="4dp"
+android:visibility="invisible"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TextViewConsejoOpciones"
+                    android:text="Los 3 puntitos ubicados a lado derecho de la X roja, muestran un menú de opciones para personalizar un poco la aplicación y se encuentra la opción de AYUDA por si la necesitas."
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="    Listo!    "
+                    android:id="@+id/BotonTerminarConsejos"
+                    android:layout_below="@id/TextViewConsejoOpciones"
+                    android:background="@drawable/fondo_boton_ok_color"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +258,7 @@
         android:background="@drawable/fondo_ajustes"
         android:layout_marginLeft="50dp"
         android:elevation="4dp"
-        android:visibility="invisible"
+android:visibility="invisible"
         >
 
         <TextView
@@ -59,6 +300,46 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewColorDeLetra"
+            android:layout_below="@+id/linearLayoutColores"
+            android:text="Color de letra"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayoutColorDeLetra"
+            android:layout_below="@+id/textViewColorDeLetra"
+            android:paddingLeft="35dp"
+            android:paddingTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Color:"
+                android:textSize="17dp"
+                android:textColor="@color/colorPrimary"
+                />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerColorDeLetra"
+                >
+
+            </Spinner>
+
+        </LinearLayout>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +347,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/fondo_boton_ok_color"
             android:id="@+id/buttonOkColor"
-            android:layout_below="@+id/linearLayoutColores"
+            android:layout_below="@+id/linearLayoutColorDeLetra"
             android:layout_marginBottom="10dp"
             android:textColor="@color/negro"
             android:text="OK"
@@ -78,7 +359,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/listviewTareas"
-
+android:visibility="invisible"
             >
 
         </ListView>
@@ -92,6 +373,7 @@
             android:layout_alignParentRight="true"
             android:layout_margin="16dp"
             android:elevation="4dp"
+            android:visibility="invisible"
             />
 
     </RelativeLayout>

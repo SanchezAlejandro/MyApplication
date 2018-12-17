@@ -1,6 +1,7 @@
 package com.example.cinthyasanchez.myapplication;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,9 +38,18 @@ public class AdaptadorTarea extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View vista = view;
+
+        SharedPreferences preferencias = contexto.getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
+        int fondoDistribucion = preferencias.getInt("distribucion", 1);
+
         if(vista == null){
+            if(fondoDistribucion == 1){
             LayoutInflater inflador = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             vista = inflador.inflate(R.layout.distribucion_vista, viewGroup, false);
+            } else {
+                LayoutInflater inflador = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                vista = inflador.inflate(R.layout.distribucion_vista_dos, viewGroup, false);
+            }
         }
 
         TextView tvDescripcion, tvFecha, tvHora;

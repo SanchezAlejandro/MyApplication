@@ -16,10 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".AgregarTarea"/>
-        <activity android:name=".Consulta">
-        </activity>
+        <activity android:name=".AgregarTarea" />
+        <activity android:name=".Consulta"></activity>
+        <activity android:name=".Ayuda"></activity>
     </application>
 
 </manifest>

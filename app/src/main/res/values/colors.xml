@@ -24,4 +24,5 @@
     <color name="fondoOscuro">#455A64</color>
     <color name="colorContraste">#d602ee</color>
     <color name="colorSecundario">#0091EA</color>
+    <color name="grisconsejos">#A6E0E0E0</color>
 </resources>

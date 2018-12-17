@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="vertical"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +25,7 @@
                 android:id="@+id/tvDescripcion"
                 android:text="Descripcion de la tarea"
                 android:textSize="24dp"
-                android:textColor="@color/negro"
+                android:textColor="@color/blanco"
                 />
 
             <TextView
@@ -35,8 +36,8 @@
                 android:text="DD/MM/AAAA"
                 android:textAlignment="textEnd"
                 android:textSize="16dp"
-                android:textColor="@color/negro"
                 android:gravity="center"
+                android:textColor="@color/blanco"
                 tools:ignore="RtlCompat" />
 
         </LinearLayout>
@@ -47,9 +48,9 @@
             android:id="@+id/tvHora"
             android:text="hora"
             android:textSize="16dp"
-            android:textColor="@color/negro"
             android:textAlignment="textEnd"
             android:layout_marginRight="8dp"
+            android:textColor="@color/blanco"
             android:gravity="end" />
 
     </LinearLayout>
