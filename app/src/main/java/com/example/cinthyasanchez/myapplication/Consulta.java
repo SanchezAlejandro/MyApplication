@@ -1,22 +1,33 @@
 package com.example.cinthyasanchez.myapplication;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TimePicker;
+
+import java.util.Calendar;
 
 public class Consulta extends AppCompatActivity implements View.OnClickListener{
 
     EditText fechaConsulta, horaConsulta, descripcionConsulta;
     ImageView aceptarConsulta, cancelarConsulta, editar;
     RelativeLayout rlBotones, rlEditar, todoConsulta;
+    LinearLayout llFechaM, llHoraM, llMod;
+
+    int dia, mes, anio, hora, minuto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +43,17 @@ public class Consulta extends AppCompatActivity implements View.OnClickListener{
         rlBotones = findViewById(R.id.RelativeLayoutBotones);
         rlEditar = findViewById(R.id.RelativeLayoutEditar);
         todoConsulta = findViewById(R.id.RelativeLayoutTodoConsulta);
+        llFechaM = findViewById(R.id.LinearLayoutFechaMod);
+        llHoraM = findViewById(R.id.LineaarLayoutHoraConsultaMod);
+        llMod = findViewById(R.id.LinearLayoutFechaMod);
+
+        fechaConsulta.setInputType(InputType.TYPE_NULL);
 
         aceptarConsulta.setOnClickListener(this);
         cancelarConsulta.setOnClickListener(this);
         editar.setOnClickListener(this);
+        llFechaM.setOnClickListener(this);
+        llHoraM.setOnClickListener(this);
 
         Tarea objeto = (Tarea) getIntent().getExtras().getSerializable("objeto");
 
@@ -46,8 +64,7 @@ public class Consulta extends AppCompatActivity implements View.OnClickListener{
 
         if(dedondevengo == 1){
             descripcionConsulta.setEnabled(true);
-            fechaConsulta.setEnabled(true);
-            horaConsulta.setEnabled(true);
+            llMod.setVisibility(View.VISIBLE);
             rlBotones.setVisibility(View.VISIBLE);
             rlEditar.setVisibility(View.INVISIBLE);
         }
@@ -73,18 +90,43 @@ public class Consulta extends AppCompatActivity implements View.OnClickListener{
             case R.id.botonCancelarConsulta:
                 setResult(RESULT_CANCELED);
                 descripcionConsulta.setEnabled(false);
-                fechaConsulta.setEnabled(false);
-                horaConsulta.setEnabled(false);
+                llMod.setVisibility(View.INVISIBLE);
                 rlBotones.setVisibility(View.INVISIBLE);
                 rlEditar.setVisibility(View.VISIBLE);
                 //finish();
                 break;
             case R.id.botonEditar:
                 descripcionConsulta.setEnabled(true);
-                fechaConsulta.setEnabled(true);
-                horaConsulta.setEnabled(true);
+                llMod.setVisibility(View.VISIBLE);
                 rlBotones.setVisibility(View.VISIBLE);
                 rlEditar.setVisibility(View.INVISIBLE);
+                break;
+            case R.id.LinearLayoutFechaMod:
+                final Calendar calendario = Calendar.getInstance();
+                dia = calendario.get(Calendar.DAY_OF_MONTH);
+                mes = calendario.get(Calendar.MONTH);
+                anio = calendario.get(Calendar.YEAR);
+
+                DatePickerDialog dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        fechaConsulta.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+                    }
+                }, anio, mes, dia);
+                dpd.show();
+                break;
+            case R.id.LineaarLayoutHoraConsultaMod:
+                final Calendar calendarioHora = Calendar.getInstance();
+                hora = calendarioHora.get(Calendar.HOUR_OF_DAY);
+                minuto = calendarioHora.get(Calendar.MINUTE);
+
+                TimePickerDialog tpd = new TimePickerDialog(this,new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        horaConsulta.setText(hourOfDay+":"+minute);
+                    }
+                }, hora, minuto, false);
+                tpd.show();
                 break;
         }
     }

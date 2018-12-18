@@ -17,8 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".AgregarTarea" />
-        <activity android:name=".Consulta"></activity>
-        <activity android:name=".Ayuda"></activity>
+        <activity android:name=".Consulta" />
+        <activity android:name=".Ayuda" />
+        <activity android:name=".TareasPendientes" />
+        <activity android:name=".ConsultaRealizada"></activity>
     </application>
 
 </manifest>

@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -48,6 +49,8 @@ public class AgregarTarea extends AppCompatActivity implements View.OnClickListe
         cancelar.setOnClickListener(this);
         llFecha.setOnClickListener(this);
         llHora.setOnClickListener(this);
+
+        editFecha.setInputType(InputType.TYPE_NULL);
 
         fondoColor();
     }

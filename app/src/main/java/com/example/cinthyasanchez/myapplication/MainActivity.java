@@ -167,8 +167,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(i, 3);
                 break;
             case 1: //marcar como realizada
+                String descripcion = listaDeTareas.get(infoTarea.position).getDescripcion();
+                String fecha = listaDeTareas.get(infoTarea.position).getFecha();
+                String hora = listaDeTareas.get(infoTarea.position).getHora();
 
+                guardarR(descripcion, fecha, hora);
+                //listaDeTareas.add(new Tarea(String.valueOf(ultimo), descripcion, fecha, hora));
+                //adaptador = new AdaptadorTarea(this, listaDeTareas);
+                //listviewTareas.setAdapter(adaptador);
 
+                String idT = listaDeTareas.get(infoTarea.position).getId();
+                SQLiteDatabase baseT = baseDatosT.getWritableDatabase();
+
+                baseDatosT.eliminarTareaPendiente(baseT, idT);
+
+                listaDeTareas.remove(infoTarea.position);
+                adaptador.notifyDataSetChanged();
                 break;
             case 2: //ver detalles
                 Intent i2 = new Intent(MainActivity.this, Consulta.class);
@@ -196,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 dialogo1.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogo1, int id) {
-                        Toast.makeText(MainActivity.this, "Cancelado", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Cancelado", Toast.LENGTH_SHORT).show();
                     }
                 });
                 dialogo1.show();
@@ -231,6 +245,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intentAyuda = new Intent(this, Ayuda.class);
                 startActivity(intentAyuda);
                 break;
+            case R.id.check:
+                Intent intentRealizadas = new Intent(this, TareasPendientes.class);
+                startActivity(intentRealizadas);
         }
         return true;
     }
@@ -329,7 +346,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case RESULT_CANCELED:
-                Toast.makeText(this, "Cancelado", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Cancelado", Toast.LENGTH_SHORT).show();
                 break;
             case 3:
                 Tarea obj = (Tarea) data.getExtras().getSerializable("objetoModf");
@@ -360,7 +377,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             adaptador.notifyDataSetChanged();
-            //listviewTareas.setAdapter(adaptador);
         }catch (Exception e){
         }
     }
@@ -368,6 +384,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void guardar(String descripcion, String fecha, String hora) {
         SQLiteDatabase baseT = baseDatosT.getWritableDatabase();
         baseDatosT.insertarTareaPendiente(baseT, descripcion, fecha, hora);
+
+        Toast.makeText(this, "Tarea guardada", Toast.LENGTH_SHORT).show();
+    }
+
+    protected void guardarR(String descripcion, String fecha, String hora) {
+        SQLiteDatabase baseR = baseDatosT.getWritableDatabase();
+        baseDatosT.insertarTareaRealizada(baseR, descripcion, fecha, hora);
 
         Toast.makeText(this, "Tarea guardada", Toast.LENGTH_SHORT).show();
     }

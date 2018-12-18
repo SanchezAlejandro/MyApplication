@@ -6,18 +6,32 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-public class Ayuda extends AppCompatActivity {
+public class ConsultaRealizada extends AppCompatActivity {
 
-    RelativeLayout todoAyuda;
+    EditText fechaConsultaR, horaConsultaR, descripcionConsultaR;
+    RelativeLayout todoConsultaR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ayuda);
+        setContentView(R.layout.activity_consulta_realizada);
 
-        todoAyuda = findViewById(R.id.RelativeLayoutTodoAyuda);
+        fechaConsultaR = findViewById(R.id.EditTextFechaConsultaR);
+        horaConsultaR = findViewById(R.id.EditTextHoraConsultaR);
+        descripcionConsultaR = findViewById(R.id.EditTextDescripcionConsultaR);
+        todoConsultaR = findViewById(R.id.RelativeLayoutTodoConsultaRealizada);
+
+        Tarea objeto = (Tarea) getIntent().getExtras().getSerializable("objeto");
+
+        descripcionConsultaR.setText(objeto.getDescripcion());
+        fechaConsultaR.setText(objeto.getFecha());
+        horaConsultaR.setText(objeto.getHora());
+
+        fechaConsultaR.setInputType(InputType.TYPE_NULL);
 
         fondoColor();
     }
@@ -56,6 +70,6 @@ public class Ayuda extends AppCompatActivity {
                 cb = Color.parseColor(getResources().getString(R.color.verde));
                 break;
         }
-        todoAyuda.setBackgroundColor(cb);
+        todoConsultaR.setBackgroundColor(cb);
     }
 }

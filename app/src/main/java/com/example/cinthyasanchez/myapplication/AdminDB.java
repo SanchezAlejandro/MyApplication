@@ -64,16 +64,25 @@ public class AdminDB extends SQLiteOpenHelper {
         bd.execSQL(insertar);
     }
 
+    public void modificarTareaRealizada(SQLiteDatabase bd, String descripcion, String fecha, String hora, String id){
+        final String modificar = "UPDATE "+NOMBRETABLATAREASREALIZADAS+" SET "+NOMBRECAMPODESCRIPCIONREALIZADAS+"='"+descripcion+"', "+NOMBRECAMPOFECHAREALIZADAS+"='"+fecha+"', "+
+                NOMBRECAMPOHORAREALIZADAS+"='"+hora+"' WHERE "+NOMBRECAMPOIDTAREAREALIZADAS+"='"+id+"';";
+        bd.execSQL(modificar);
+    }
+
     public void eliminarTareaRealizada(SQLiteDatabase bd, String id){
         final String eliminar = "DELETE FROM "+NOMBRETABLATAREASREALIZADAS+" WHERE "+NOMBRECAMPOIDTAREAREALIZADAS+"='"+id+"';";
         bd.execSQL(eliminar);
     }
 
     public Cursor consultaTotal(SQLiteDatabase bd){
-
         Cursor t = bd.rawQuery(CONSULTASQLP, null);
         return t;
+    }
 
+    public Cursor consultaTotalR(SQLiteDatabase bd){
+        Cursor r = bd.rawQuery(CONSULTASQLR, null);
+        return r;
     }
 
     @Override
