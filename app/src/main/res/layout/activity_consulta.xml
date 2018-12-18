@@ -24,22 +24,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+
                 >
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fecha:"
-                    android:textSize="18dp"
-                    />
+                    android:layout_height="45dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/LineaarLayoutFechaConsulta"
+                    android:background="@drawable/fondo_boton_ok_color"
+                    android:layout_margin="4dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/calendario"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text=" Fecha:  "
+                        android:textSize="18dp"
+                        android:textColor="@color/blanco"
+                        />
+
+                </LinearLayout>
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/EditTextFechaConsulta"
-                    android:hint="Ingrese fecha de la tarea"
+                    android:hint="AAAA/MM/DD"
                     android:textSize="18dp"
                     android:enabled="false"
+                    android:layout_gravity="center_vertical"
                     />
 
             </LinearLayout>
@@ -50,20 +73,41 @@
                 android:orientation="horizontal"
                 >
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hora:"
-                    android:textSize="18dp"
-                    />
+                    android:layout_height="45dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/LineaarLayoutHoraConsukuta"
+                    android:background="@drawable/fondo_boton_ok_color"
+                    android:layout_margin="4dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/reloj"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text=" Hora:    "
+                        android:textSize="18dp"
+                        android:textColor="@color/blanco"
+                        />
+
+                </LinearLayout>
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/EditTextHoraConsulta"
-                    android:hint="Ingrese hora de la tarea"
+                    android:hint="00:00"
                     android:textSize="18dp"
-                    android:enabled="false"
+                    android:layout_gravity="center_vertical"
                     />
 
             </LinearLayout>
@@ -110,10 +154,10 @@
             >
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:id="@+id/botonEditar"
-                android:src="@drawable/estadisticasota"
+                android:src="@drawable/editar"
                 android:layout_marginBottom="8dp"
                 android:layout_centerHorizontal="true"
                 android:elevation="4dp"
@@ -138,17 +182,17 @@
                 >
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:id="@+id/botonCancelarConsulta"
-                    android:src="@drawable/cancelar"
+                    android:src="@drawable/salir"
                     android:layout_marginRight="64dp"
                     android:elevation="4dp"
                     />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:id="@+id/botonAceptarConsulta"
                     android:src="@drawable/aceptar"
                     android:layout_marginRight="16dp"

@@ -3,7 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:title=""
-        android:icon="@drawable/cancelar"
+        android:icon="@drawable/check"
+        android:id="@+id/check"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:title=""
+        android:icon="@drawable/cancela"
         android:id="@+id/salir"
         app:showAsAction="always"
         />

@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ListView listviewTareas;
     ImageView botonAgregar;
     AdaptadorTarea adaptador;
-    RelativeLayout color, bienvenida, agregar, muestraAgregar, areaDeLista, muestraareaDeLista, tarea, muestraTarea, xRoja, tresPuntitos;
-    Button okColor, comenzar, siguienteAgregar, siguienteAreaDeLista, siguienteTarea, siguientexRoja, listo;
+    RelativeLayout color, bienvenida, agregar, muestraAgregar, areaDeLista, muestraareaDeLista, tarea, muestraTarea, check, xRoja, tresPuntitos;
+    Button okColor, comenzar, siguienteAgregar, siguienteAreaDeLista, siguienteTarea, siguienteCheck, siguientexRoja, listo;
     Spinner spin, spinLetra;
 
     AdminDB baseDatosT = new AdminDB(this);
@@ -60,12 +60,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         muestraareaDeLista = findViewById(R.id.RelativeLayoutMuestraAreaDeLista);
         tarea = findViewById(R.id.RelativeLayoutConsejoTateaDeLista);
         muestraTarea = findViewById(R.id.RelativeLayoutMuestraTareaDeLista);
+        check = findViewById(R.id.RelativeLayoutConsejoCheck);
         xRoja = findViewById(R.id.RelativeLayoutConsejoSalir);
         tresPuntitos = findViewById(R.id.RelativeLayoutConsejoOpciones);
         comenzar = findViewById(R.id.BotonComencemos);
         siguienteAgregar = findViewById(R.id.BotonSiguienteAgregar);
         siguienteAreaDeLista = findViewById(R.id.BotonSiguienteArea);
         siguienteTarea = findViewById(R.id.BotonSiguienteTarea);
+        siguienteCheck = findViewById(R.id.BotonSiguienteCheck);
         siguientexRoja = findViewById(R.id.BotonSiguienteSalir);
         listo = findViewById(R.id.BotonTerminarConsejos);
 
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         siguienteAgregar.setOnClickListener(this);
         siguienteAreaDeLista.setOnClickListener(this);
         siguienteTarea.setOnClickListener(this);
+        siguienteCheck.setOnClickListener(this);
         siguientexRoja.setOnClickListener(this);
         listo.setOnClickListener(this);
 
@@ -103,13 +106,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spin.setOnItemSelectedListener(this);
         spinLetra.setOnItemSelectedListener(this);
 
-        String[] colores = {"Amarillo pastel","Ambar","Azul pastel", "Azul gris","Blanco","Gris","Índigo pastel","Lima pastel","Purpura Pastel","Rosa pastel","Verde azulado","Verde menta","Verde pastel"};
+        String[] colores = {"Azul claro","Blanco","Gris", "Marrón","Morado","Naranja","Rojo","Rosa","Verde"};
         spin.setAdapter(new ArrayAdapter<String>(this, R.layout.spinneritem, colores));
         String[] colorDeLetra = {"Blanco","Negro"};
         spinLetra.setAdapter(new ArrayAdapter<String>(this, R.layout.spinneritem, colorDeLetra));
 
         SharedPreferences preferencias = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE);
-        int indiceSpinner = preferencias.getInt("color", 4);
+        int indiceSpinner = preferencias.getInt("color", 1);
         spin.setSelection(indiceSpinner);
         int indiceSpinnerLetras = preferencias.getInt("distribucion", 1);
         spinLetra.setSelection(indiceSpinnerLetras);
@@ -266,9 +269,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editor.putInt("color", m);
                 editor.putInt("distribucion", l);
                 editor.commit();
-                //adaptador.notifyDataSetChanged();
-                //listviewTareas.setAdapter(adaptador);
-                //leerArchivo();
                 break;
             case R.id.BotonComencemos:
                 bienvenida.setVisibility(View.INVISIBLE);
@@ -291,6 +291,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tarea.setVisibility(View.INVISIBLE);
                 muestraareaDeLista.setVisibility(View.INVISIBLE);
                 muestraTarea.setVisibility(View.INVISIBLE);
+                check.setVisibility(View.VISIBLE);
+                break;
+            case R.id.BotonSiguienteCheck:
+                check.setVisibility(View.INVISIBLE);
                 xRoja.setVisibility(View.VISIBLE);
                 break;
             case R.id.BotonSiguienteSalir:
@@ -387,43 +391,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 switch (i) {
                     case 0:
-                        i = Color.parseColor(getResources().getString(R.color.amarilloPastel));
+                        i = Color.parseColor(getResources().getString(R.color.azulClaro));
                         break;
                     case 1:
-                        i = Color.parseColor(getResources().getString(R.color.ambarPastel));
-                        break;
-                    case 2:
-                        i = Color.parseColor(getResources().getString(R.color.azulPastel));
-                        break;
-                    case 3:
-                        i = Color.parseColor(getResources().getString(R.color.azulGris));
-                        break;
-                    case 4:
                         i = Color.parseColor(getResources().getString(R.color.blanco));
                         break;
-                    case 5:
+                    case 2:
                         i = Color.parseColor(getResources().getString(R.color.gris));
                         break;
+                    case 3:
+                        i = Color.parseColor(getResources().getString(R.color.marron));
+                        break;
+                    case 4:
+                        i = Color.parseColor(getResources().getString(R.color.morado));
+                        break;
+                    case 5:
+                        i = Color.parseColor(getResources().getString(R.color.naranja));
+                        break;
                     case 6:
-                        i = Color.parseColor(getResources().getString(R.color.indigoPastel));
+                        i = Color.parseColor(getResources().getString(R.color.rojo));
                         break;
                     case 7:
-                        i = Color.parseColor(getResources().getString(R.color.limaPastel));
+                        i = Color.parseColor(getResources().getString(R.color.rosa));
                         break;
                     case 8:
-                        i = Color.parseColor(getResources().getString(R.color.purpuraPastel));
-                        break;
-                    case 9:
-                        i = Color.parseColor(getResources().getString(R.color.rosaPastel));
-                        break;
-                    case 10:
-                        i = Color.parseColor(getResources().getString(R.color.verdeAzuladoPastel));
-                        break;
-                    case 11:
-                        i = Color.parseColor(getResources().getString(R.color.verdePastel));
-                        break;
-                    case 12:
-                        i = Color.parseColor(getResources().getString(R.color.verdePastelDos));
+                        i = Color.parseColor(getResources().getString(R.color.verde));
                         break;
                 }
                 contenedor.setBackgroundColor(i);
